@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0" />
+  <title>Alpaquitay Tasmania | Peruvian Folklore Dance Group</title>
+  <meta name="description" content="Alpaquitay Tasmania is a Peruvian folklore dance group championing Andean culture through vibrant performances, workshops, and community events across Tasmania." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Besley:ital,wght@0,400;0,500;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ═══════════════════════════════════════════════════════════════
+       DESIGN TOKENS  (mirroring overlake.org palette)
+    ═══════════════════════════════════════════════════════════════ */
+    :root {
+      --bg:           #f9f7f0;
+      --text:         #21201f;
+      --green:        #005829;
+      --green-dark:   #003d1c;
+      --green-light:  #e8f2ec;
+      --gold:         #b8860b;
+      --gold-light:   #fdf6e3;
+      --border:       #dedad0;
+      --mid:          #6b6860;
+      --white:        #ffffff;
+      --font-body:    'Inter', system-ui, sans-serif;
+      --font-serif:   'Besley', Georgia, serif;
+      --radius:       4px;
+      --max:          1280px;
+    }
+
+    /* ── Reset ─────────────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font-body);
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.5;
+      color: var(--text);
+      background: var(--bg);
+      overflow-x: hidden;
+      padding-top: 131px;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+    }
+    img { display: block; max-width: 100%; }
+    a { color: inherit; text-decoration: none; }
+    button { cursor: pointer; font-family: inherit; }
+    ul { list-style: none; }
+
+    /* ── Skip link ─────────────────────────────────────────────── */
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 1rem;
+      background: var(--green);
+      color: #fff;
+      padding: .5rem 1rem;
+      border-radius: var(--radius);
+      font-size: .875rem;
+      font-weight: 600;
+      z-index: 9999;
+      transition: top .2s;
+    }
+    .skip-link:focus { top: 1rem; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       HEADER
+    ═══════════════════════════════════════════════════════════════ */
+    .header-fixed {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      width: 100%;
+    }
+
+    /* Top bar */
+    .top-bar {
+      background: var(--green-dark);
+      color: #fff;
+      font-size: .8125rem;
+      letter-spacing: .03em;
+    }
+    .top-bar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 1.5rem;
+    }
+    .top-bar a {
+      color: rgba(255,255,255,.85);
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      font-size: .8125rem;
+      font-weight: 500;
+      transition: color .15s;
+    }
+    .top-bar a:hover { color: #fff; }
+    .top-bar a:focus-visible { outline: 2px solid #fff; outline-offset: 3px; border-radius: 2px; }
+    .top-bar-divider { color: rgba(255,255,255,.3); }
+
+    /* Main nav */
+    .main-header {
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      box-shadow: 0 1px 8px rgba(0,0,0,.06);
+    }
+    .main-header-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 0 2rem;
+      height: 91px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+    }
+
+    /* Logo */
+    .site-logo {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      flex-shrink: 0;
+    }
+    .logo-mark {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: var(--green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .logo-mark svg { width: 34px; height: 34px; fill: #fff; }
+    .logo-text { line-height: 1.2; }
+    .logo-text-main {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 600;
+      color: var(--green);
+      display: block;
+    }
+    .logo-text-sub {
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--mid);
+      display: block;
+    }
+
+    /* Primary nav */
+    .primary-nav {
+      display: flex;
+      align-items: center;
+      gap: .25rem;
+    }
+    .primary-nav > li { position: relative; }
+    .primary-nav > li > a {
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+      padding: .5rem .85rem;
+      font-size: .9375rem;
+      font-weight: 500;
+      color: var(--text);
+      border-radius: var(--radius);
+      transition: color .15s, background .15s;
+      white-space: nowrap;
+    }
+    .primary-nav > li > a:hover { color: var(--green); background: var(--green-light); }
+    .primary-nav > li > a:focus-visible { outline: 2px solid var(--green); outline-offset: 2px; }
+    .primary-nav > li > a svg { width: 14px; height: 14px; opacity: .55; flex-shrink: 0; transition: transform .2s; }
+    .primary-nav > li:hover > a svg { transform: rotate(180deg); opacity: .8; }
+
+    /* Dropdown */
+    .dropdown {
+      position: absolute;
+      top: calc(100% + 4px);
+      left: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.12);
+      min-width: 220px;
+      padding: .5rem 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(-6px);
+      transition: opacity .18s, transform .18s;
+    }
+    .primary-nav > li:hover .dropdown,
+    .primary-nav > li:focus-within .dropdown {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+    .dropdown a {
+      display: block;
+      padding: .55rem 1.25rem;
+      font-size: .9rem;
+      color: var(--text);
+      transition: background .12s, color .12s;
+    }
+    .dropdown a:hover { background: var(--green-light); color: var(--green); }
+
+    /* Nav actions */
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-left: .75rem;
+    }
+    .btn-search {
+      width: 38px; height: 38px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: transparent;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--text);
+      transition: background .15s, border-color .15s;
+    }
+    .btn-search:hover { background: var(--green-light); border-color: var(--green); color: var(--green); }
+    .btn-search svg { width: 18px; height: 18px; }
+    .btn-cta {
+      background: var(--green);
+      color: #fff;
+      padding: .55rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: .875rem;
+      font-weight: 600;
+      border: none;
+      white-space: nowrap;
+      transition: background .15s, transform .12s;
+    }
+    .btn-cta:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .btn-cta:active { transform: translateY(0); }
+    .btn-cta:focus-visible { outline: 2px solid var(--green); outline-offset: 3px; }
+
+    /* Hamburger */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      padding: 6px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px; height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform .2s, opacity .2s;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       HERO
+    ═══════════════════════════════════════════════════════════════ */
+    .hero {
+      position: relative;
+      height: 78vh;
+      min-height: 520px;
+      overflow: hidden;
+    }
+    .hero-img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to right,
+        rgba(0,40,20,.72) 0%,
+        rgba(0,40,20,.45) 40%,
+        rgba(0,0,0,.1) 70%,
+        transparent 100%
+      );
+    }
+    .hero-content {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      padding: 0 2rem 4rem;
+      max-width: var(--max);
+      margin: 0 auto;
+    }
+    .hero-content-inner { max-width: 580px; }
+    .hero-eyebrow {
+      font-size: .8125rem;
+      font-weight: 600;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.8);
+      margin-bottom: .75rem;
+    }
+    .hero-title {
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 4.5vw, 3.5rem);
+      font-weight: 600;
+      line-height: 1.15;
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .hero-body {
+      font-size: 1.0625rem;
+      line-height: 1.6;
+      color: rgba(255,255,255,.88);
+      margin-bottom: 1.75rem;
+      max-width: 46ch;
+    }
+    .hero-btns {
+      display: flex;
+      gap: .75rem;
+      flex-wrap: wrap;
+    }
+    .btn-hero-primary {
+      background: var(--white);
+      color: var(--green);
+      padding: .75rem 1.75rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: .9375rem;
+      border: 2px solid transparent;
+      transition: background .15s, color .15s, transform .12s;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .btn-hero-primary:hover { background: var(--green-light); color: var(--green-dark); transform: translateY(-1px); }
+    .btn-hero-primary:focus-visible { outline: 3px solid rgba(255,255,255,.7); outline-offset: 3px; }
+    .btn-hero-secondary {
+      background: transparent;
+      color: #fff;
+      padding: .75rem 1.75rem;
+      border-radius: var(--radius);
+      font-weight: 600;
+      font-size: .9375rem;
+      border: 2px solid rgba(255,255,255,.7);
+      transition: background .15s, border-color .15s, transform .12s;
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+    }
+    .btn-hero-secondary:hover { background: rgba(255,255,255,.12); border-color: #fff; transform: translateY(-1px); }
+    .btn-hero-secondary:focus-visible { outline: 3px solid rgba(255,255,255,.7); outline-offset: 3px; }
+
+    /* Down arrow */
+    .home-down-arrow {
+      position: absolute;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+    }
+    .arrow {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.2);
+      border: 1.5px solid rgba(255,255,255,.5);
+      display: flex; align-items: center; justify-content: center;
+      animation: bounceY 2s ease-in-out infinite;
+    }
+    .arrow::after {
+      content: '';
+      width: 10px; height: 10px;
+      border-right: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(45deg) translateY(-2px);
+      display: block;
+    }
+    @keyframes bounceY {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(5px); }
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       QUICK TILES
+    ═══════════════════════════════════════════════════════════════ */
+    .quick-tiles {
+      background: var(--green);
+    }
+    .quick-tiles-grid {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .tile {
+      padding: 1.75rem 1.5rem;
+      border-right: 1px solid rgba(255,255,255,.15);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: .5rem;
+      color: #fff;
+      transition: background .15s;
+      cursor: pointer;
+    }
+    .tile:last-child { border-right: none; }
+    .tile:hover { background: var(--green-dark); }
+    .tile:focus-visible { outline: 2px solid #fff; outline-offset: -2px; }
+    .tile-icon {
+      width: 36px; height: 36px;
+      background: rgba(255,255,255,.15);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: .25rem;
+    }
+    .tile-icon svg { width: 18px; height: 18px; fill: #fff; }
+    .tile-label {
+      font-size: .875rem;
+      font-weight: 600;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+    .tile-desc {
+      font-size: .875rem;
+      color: rgba(255,255,255,.75);
+      line-height: 1.4;
+    }
+    .tile-arrow {
+      margin-top: auto;
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+      font-size: .8125rem;
+      font-weight: 600;
+      color: rgba(255,255,255,.75);
+    }
+    .tile-arrow svg { width: 14px; height: 14px; fill: currentColor; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       GENERAL SECTIONS
+    ═══════════════════════════════════════════════════════════════ */
+    .section { padding: 5rem 2rem; }
+    .section-inner { max-width: var(--max); margin: 0 auto; }
+    .section-label {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--green);
+      margin-bottom: .6rem;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 600;
+      line-height: 1.2;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+    .section-body {
+      font-size: 1.0625rem;
+      line-height: 1.75;
+      color: #4a4844;
+      max-width: 66ch;
+    }
+    .divider {
+      width: 48px; height: 3px;
+      background: var(--green);
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Green text link */
+    .text-link {
+      color: var(--green);
+      font-weight: 600;
+      font-size: .9375rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      border-bottom: 1.5px solid transparent;
+      padding-bottom: .1em;
+      transition: border-color .15s, color .15s;
+    }
+    .text-link:hover { border-color: var(--green); }
+    .text-link svg { width: 16px; height: 16px; fill: currentColor; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       FEATURE SPLIT (image + text)
+    ═══════════════════════════════════════════════════════════════ */
+    .feature-split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      min-height: 520px;
+    }
+    .feature-split.reverse { direction: rtl; }
+    .feature-split.reverse > * { direction: ltr; }
+    .feature-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .feature-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s ease;
+    }
+    .feature-img:hover img { transform: scale(1.03); }
+    .feature-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem;
+      background: var(--white);
+    }
+    .feature-text.bg-cream { background: var(--bg); }
+    .feature-text.bg-green { background: var(--green); color: #fff; }
+    .feature-text.bg-green .section-label { color: rgba(255,255,255,.7); }
+    .feature-text.bg-green .section-title { color: #fff; }
+    .feature-text.bg-green .section-body { color: rgba(255,255,255,.8); }
+    .feature-text.bg-green .divider { background: rgba(255,255,255,.4); }
+    .feature-text.bg-green .text-link { color: #fff; }
+    .feature-text.bg-green .text-link:hover { border-color: rgba(255,255,255,.7); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       NEWS CARDS
+    ═══════════════════════════════════════════════════════════════ */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .card {
+      background: var(--white);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: box-shadow .2s, transform .2s;
+    }
+    .card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,.1);
+      transform: translateY(-3px);
+    }
+    .card-img {
+      aspect-ratio: 16/9;
+      overflow: hidden;
+    }
+    .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s ease;
+    }
+    .card:hover .card-img img { transform: scale(1.04); }
+    .card-body {
+      padding: 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: .6rem;
+    }
+    .card-tag {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--green);
+    }
+    .card-title {
+      font-family: var(--font-serif);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      line-height: 1.35;
+      color: var(--text);
+    }
+    .card-excerpt {
+      font-size: .9rem;
+      line-height: 1.6;
+      color: var(--mid);
+      flex: 1;
+    }
+    .card-meta {
+      font-size: .8125rem;
+      color: var(--mid);
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+      margin-top: .25rem;
+    }
+    .card-meta svg { width: 14px; height: 14px; fill: currentColor; opacity: .6; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       EVENTS LIST
+    ═══════════════════════════════════════════════════════════════ */
+    .events-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      margin-top: 2rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+      background: var(--white);
+    }
+    .event-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 1.25rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      transition: background .12s;
+    }
+    .event-row:last-child { border-bottom: none; }
+    .event-row:hover { background: var(--green-light); }
+    .event-date {
+      flex-shrink: 0;
+      width: 56px;
+      text-align: center;
+      background: var(--green);
+      color: #fff;
+      border-radius: 4px;
+      padding: .5rem .25rem;
+    }
+    .event-date-day {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 600;
+      line-height: 1;
+      display: block;
+    }
+    .event-date-mo {
+      font-size: .65rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      opacity: .85;
+      display: block;
+      margin-top: 2px;
+    }
+    .event-info { flex: 1; }
+    .event-title {
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: .2rem;
+    }
+    .event-meta-row {
+      font-size: .85rem;
+      color: var(--mid);
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .event-meta-row span {
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+    }
+    .event-meta-row svg { width: 13px; height: 13px; fill: currentColor; opacity: .7; }
+    .event-tag-pill {
+      flex-shrink: 0;
+      font-size: .7rem;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: .3rem .75rem;
+      border-radius: 999px;
+      background: var(--green-light);
+      color: var(--green);
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       STAT BAR
+    ═══════════════════════════════════════════════════════════════ */
+    .stat-bar {
+      background: var(--green-dark);
+      color: #fff;
+      padding: 3.5rem 2rem;
+    }
+    .stat-bar-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: var(--font-serif);
+      font-size: 3rem;
+      font-weight: 600;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: .4rem;
+    }
+    .stat-num span { color: rgba(255,255,255,.5); font-weight: 400; }
+    .stat-label {
+      font-size: .875rem;
+      color: rgba(255,255,255,.65);
+      letter-spacing: .04em;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       TESTIMONIAL
+    ═══════════════════════════════════════════════════════════════ */
+    .testimonial-section {
+      background: var(--gold-light);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 2rem;
+    }
+    .testimonial-inner {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .quote-mark {
+      font-family: var(--font-serif);
+      font-size: 5rem;
+      line-height: .5;
+      color: var(--green);
+      opacity: .3;
+      display: block;
+      margin-bottom: .75rem;
+    }
+    .testimonial-text {
+      font-family: var(--font-serif);
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      font-style: italic;
+      line-height: 1.65;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+    .testimonial-attr {
+      font-size: .875rem;
+      color: var(--mid);
+      font-weight: 500;
+    }
+
+    /* ═══════════════════════════════════════════════════════════════
+       CONTACT SECTION
+    ═══════════════════════════════════════════════════════════════ */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .contact-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: .9rem;
+      margin-bottom: 1.25rem;
+    }
+    .contact-icon {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: var(--green-light);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      margin-top: .1rem;
+    }
+    .contact-icon svg { width: 18px; height: 18px; fill: var(--green); }
+    .contact-lbl {
+      font-size: .75rem;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: .15rem;
+    }
+    .contact-val {
+      font-size: 1rem;
+      color: var(--text);
+    }
+    .contact-val a { color: var(--green); }
+    .contact-val a:hover { text-decoration: underline; }
+
+    /* Form */
+    .form-group { margin-bottom: 1.1rem; }
+    .form-label {
+      display: block;
+      font-size: .8125rem;
+      font-weight: 600;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--mid);
+      margin-bottom: .4rem;
+    }
+    .form-input, .form-select, .form-textarea {
+      width: 100%;
+      padding: .75rem 1rem;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: .9375rem;
+      color: var(--text);
+      transition: border-color .15s, box-shadow .15s;
+      outline: none;
+    }
+    .form-input:focus, .form-select:focus, .form-textarea:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(0,88,41,.12);
+    }
+    .form-textarea { resize: vertical; min-height: 120px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .btn-submit {
+      background: var(--green);
+      color: #fff;
+      padding: .875rem 2rem;
+      border-radius: var(--radius);
+      font-family: var(--font-body);
+      font-size: 1rem;
+      font-weight: 600;
+      border: none;
+      width: 100%;
+      transition: background .15s, transform .12s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: .5rem;
+      cursor: pointer;
+    }
+    .btn-submit:hover { background: var(--green-dark); transform: translateY(-1px); }
+    .btn-submit svg { width: 18px; height: 18px; fill: currentColor; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       FOOTER
+    ═══════════════════════════════════════════════════════════════ */
+    .site-footer {
+      background: var(--text);
+      color: rgba(255,255,255,.75);
+    }
+    .footer-top {
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+    }
+    .footer-brand .logo-text-main { color: #fff; }
+    .footer-brand .logo-text-sub { color: rgba(255,255,255,.5); }
+    .footer-about {
+      font-size: .9rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,.6);
+      margin-top: 1rem;
+      max-width: 32ch;
+    }
+    .footer-social {
+      display: flex;
+      gap: .6rem;
+      margin-top: 1.25rem;
+    }
+    .social-icon {
+      width: 36px; height: 36px;
+      border-radius: var(--radius);
+      border: 1px solid rgba(255,255,255,.15);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,.65);
+      transition: background .15s, border-color .15s, color .15s;
+    }
+    .social-icon:hover { background: var(--green); border-color: var(--green); color: #fff; }
+    .social-icon:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+    .social-icon svg { width: 16px; height: 16px; fill: currentColor; }
+    .footer-col-title {
+      font-size: .75rem;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.9);
+      margin-bottom: 1.1rem;
+    }
+    .footer-links li { margin-bottom: .6rem; }
+    .footer-links a {
+      font-size: .9rem;
+      color: rgba(255,255,255,.6);
+      transition: color .12s;
+    }
+    .footer-links a:hover { color: #fff; }
+    .footer-links a:focus-visible { outline: 2px solid rgba(255,255,255,.5); outline-offset: 2px; border-radius: 2px; }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.08);
+      padding: 1.25rem 2rem;
+    }
+    .footer-bottom-inner {
+      max-width: var(--max);
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .footer-copyright { font-size: .8125rem; color: rgba(255,255,255,.4); }
+    .footer-legal {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .footer-legal a {
+      font-size: .8125rem;
+      color: rgba(255,255,255,.4);
+      transition: color .12s;
+    }
+    .footer-legal a:hover { color: rgba(255,255,255,.75); }
+
+    /* ═══════════════════════════════════════════════════════════════
+       UTILITY
+    ═══════════════════════════════════════════════════════════════ */
+    .bg-cream { background: var(--bg); }
+    .bg-white { background: var(--white); }
+    .text-center { text-align: center; }
+    .text-center .section-body { margin-left: auto; margin-right: auto; }
+    .text-center .divider { margin-left: auto; margin-right: auto; }
+    .mt-1 { margin-top: 1rem; }
+    .mt-2 { margin-top: 2rem; }
+    .mt-3 { margin-top: 3rem; }
+
+    /* ═══════════════════════════════════════════════════════════════
+       RESPONSIVE
+    ═══════════════════════════════════════════════════════════════ */
+    @media (max-width: 1024px) {
+      .quick-tiles-grid { grid-template-columns: repeat(2, 1fr); }
+      .cards-grid { grid-template-columns: repeat(2, 1fr); }
+      .feature-split { grid-template-columns: 1fr; }
+      .feature-img { min-height: 300px; }
+      .feature-text { padding: 3rem 2rem; }
+      .stat-bar-inner { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      body { padding-top: 91px; font-size: 16px; }
+      .top-bar { display: none; }
+      .hamburger { display: flex; }
+      .primary-nav, .nav-actions { display: none; }
+      .hero { height: 65vh; }
+      .quick-tiles-grid { grid-template-columns: 1fr 1fr; }
+      .cards-grid { grid-template-columns: 1fr; }
+      .stat-bar-inner { grid-template-columns: repeat(2, 1fr); }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (max-width: 480px) {
+      .quick-tiles-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ═══ HEADER ══════════════════════════════════════════════════ -->
+  <div class="header-fixed" id="header">
+
+    <!-- Top utility bar -->
+    <div class="top-bar">
+      <div class="top-bar-inner">
+        <a href="#contact">
+          <svg viewBox="0 0 20 20" fill="none" style="width:14px;height:14px;stroke:currentColor;stroke-width:2;"><path d="M3 8l7-5 7 5v9a1 1 0 01-1 1H4a1 1 0 01-1-1V8z"/><path d="M9 21V12h2v9"/></svg>
+          Book a Performance
+        </a>
+        <span class="top-bar-divider">|</span>
+        <a href="mailto:alpaquitaytasmania@gmail.com">
+          <svg viewBox="0 0 20 20" fill="currentColor" style="width:14px;height:14px;"><path d="M16.7 3.3H3.3A1.7 1.7 0 001.7 5v10a1.7 1.7 0 001.6 1.7H16.7a1.7 1.7 0 001.6-1.7V5a1.7 1.7 0 00-1.6-1.7zm-.4 3.6l-5.9 3.7a.8.8 0 01-.8 0L3.7 6.9a.8.8 0 01.7-1.4L10 8.9l5.6-3.4a.8.8 0 11.7 1.4z"/></svg>
+          alpaquitaytasmania@gmail.com
+        </a>
+        <span class="top-bar-divider">|</span>
+        <a href="#contact">
+          <svg viewBox="0 0 20 20" fill="currentColor" style="width:14px;height:14px;"><path d="M16 12.7l-2.1-.3a1.7 1.7 0 00-1.4.5l-1.5 1.5A12.2 12.2 0 015.5 9L7 7.5c.4-.4.5-.9.5-1.4L7.2 4a1.7 1.7 0 00-1.6-1.5H4.2a1.7 1.7 0 00-1.7 1.8c.4 7.1 6.1 12.8 13.2 13.2A1.7 1.7 0 0017.5 16v-1.8c0-.8-.7-1.5-1.5-1.5z"/></svg>
+          Hobart, Tasmania
+        </a>
+      </div>
+    </div>
+
+    <!-- Main navigation -->
+    <div class="main-header">
+      <div class="main-header-inner">
+
+        <!-- Logo -->
+        <a href="#" class="site-logo" aria-label="Alpaquitay Tasmania — Home">
+          <div class="logo-mark">
+            <!-- Alpaca silhouette SVG -->
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+              <ellipse cx="105" cy="130" rx="52" ry="38"/>
+              <rect x="88" y="80" width="24" height="50" rx="10"/>
+              <ellipse cx="100" cy="68" rx="22" ry="20"/>
+              <ellipse cx="88" cy="50" rx="7" ry="11" transform="rotate(-15 88 50)"/>
+              <ellipse cx="112" cy="48" rx="7" ry="11" transform="rotate(15 112 48)"/>
+              <ellipse cx="100" cy="78" rx="12" ry="7"/>
+              <rect x="72" y="158" width="14" height="30" rx="7"/>
+              <rect x="90" y="158" width="14" height="30" rx="7"/>
+              <rect x="110" y="158" width="14" height="30" rx="7"/>
+              <rect x="128" y="158" width="14" height="30" rx="7"/>
+              <ellipse cx="155" cy="118" rx="12" ry="10" transform="rotate(20 155 118)"/>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-text-main">Alpaquitay</span>
+            <span class="logo-text-sub">Tasmania</span>
+          </div>
+        </a>
+
+        <!-- Nav links -->
+        <nav aria-label="Primary navigation">
+          <ul class="primary-nav">
+
+            <li>
+              <a href="#about">About
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5 7l5 5 5-5"/></svg>
+              </a>
+              <ul class="dropdown">
+                <li><a href="#about">Our Story</a></li>
+                <li><a href="#about">Our Mission</a></li>
+                <li><a href="#about">Our Dancers</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#performances">Performances
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5 7l5 5 5-5"/></svg>
+              </a>
+              <ul class="dropdown">
+                <li><a href="#performances">Live Shows</a></li>
+                <li><a href="#performances">Private Events</a></li>
+                <li><a href="#performances">School Programs</a></li>
+                <li><a href="#performances">Festival Bookings</a></li>
+              </ul>
+            </li>
+
+            <li>
+              <a href="#classes">Classes
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M5 7l5 5 5-5"/></svg>
+              </a>
+              <ul class="dropdown">
+                <li><a href="#classes">Dance Workshops</a></li>
+                <li><a href="#classes">Adult Classes</a></li>
+                <li><a href="#classes">Youth Program</a></li>
+              </ul>
+            </li>
+
+            <li><a href="#events">Events</a></li>
+            <li><a href="#news">News</a></li>
+            <li><a href="#contact">Contact</a></li>
+
+          </ul>
+        </nav>
+
+        <!-- Actions -->
+        <div class="nav-actions">
+          <button class="btn-search" aria-label="Search">
+            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2"><circle cx="8" cy="8" r="5"/><path d="M13 13l3.5 3.5"/></svg>
+          </button>
+          <a href="#contact" class="btn-cta">Book Us</a>
+        </div>
+
+        <button class="hamburger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ MAIN ══════════════════════════════════════════════════════ -->
+  <main id="main-content">
+
+    <!-- HERO ─────────────────────────────────────────────────────── -->
+    <section class="hero" aria-label="Hero">
+      <img class="hero-img" src="hero.png" alt="Fiesta de la Candelaria — Alpaquitay performers in traditional Peruvian costumes" />
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-content-inner">
+          <p class="hero-eyebrow">Tasmania · Perú · Folklore</p>
+          <h1 class="hero-title">Andean Spirit<br/>in Southern Lands</h1>
+          <p class="hero-body">Celebrating the vibrant colours, rhythms, and soul of Peruvian folklore — right here in the heart of Tasmania.</p>
+          <div class="hero-btns">
+            <a href="#events" class="btn-hero-primary">
+              Upcoming Events
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M7.7 5.6c-.3.3-.3.9 0 1.2L11 10l-3.3 3.2c-.3.3-.3.9 0 1.2.3.3.9.3 1.2 0l3.8-3.8c.3-.3.3-.9 0-1.2L8.9 5.6c-.3-.3-.9-.3-1.2 0z"/></svg>
+            </a>
+            <a href="#about" class="btn-hero-secondary">Our Story</a>
+          </div>
+        </div>
+      </div>
+      <div class="home-down-arrow">
+        <div class="arrow"></div>
+      </div>
+    </section>
+
+    <!-- QUICK TILES ──────────────────────────────────────────────── -->
+    <div class="quick-tiles">
+      <div class="quick-tiles-grid">
+
+        <a href="#performances" class="tile">
+          <div class="tile-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9 9-4.03 9-9-4.03-9-9-9zm-2 12.5v-7l5.25 3.5L10 15.5z"/></svg>
+          </div>
+          <span class="tile-label">Live Performances</span>
+          <span class="tile-desc">Traditional folklore shows for festivals, galas &amp; events</span>
+          <span class="tile-arrow">Learn more <svg viewBox="0 0 20 20"><path d="M7.7 5.6c-.3.3-.3.9 0 1.2L11 10l-3.3 3.2c-.3.3-.3.9 0 1.2.3.3.9.3 1.2 0l3.8-3.8c.3-.3.3-.9 0-1.2L8.9 5.6c-.3-.3-.9-.3-1.2 0z"/></svg></span>
+        </a>
+
+        <a href="#classes" class="tile">
+          <div class="tile-icon">
+            <svg viewBox="0 0 24 24"><path d="M12 3L1 9l11 6 9-4.9V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>
+          </div>
+          <span class="tile-label">Dance Classes</span>
+          <span class="tile-desc">Workshops for all ages — beginners to advanced</span>
+          <span class="tile-arrow">Learn more <svg viewBox="0 0 20 20"><path d="M7.7 5.6c-.3.3-.3.9 0 1.2L11 10l-3.3 3.2c-.3.3-.3.9 0 1.2.3.3.9.3 1.2 0l3.8-3.8c.3-.3.3-.9 0-1.2L8.9 5.6c-.3-.3-.9-.3-1.2 0z"/></svg></span>
+        </a>
+
+        <a href="#events" class="tile">
+          <div class="tile-icon">
+            <svg viewBox="0 0 24 24"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+          </div>
+          <span class="tile-label">Upcoming Events</span>
+          <span class="tile-desc">Performances and community gatherings across Tasmania</span>
+          <span class="tile-arrow">View calendar <svg viewBox="0 0 20 20"><path d="M7.7 5.6c-.3.3-.3.9 0 1.2L11 10l-3.3 3.2c-.3.3-.3.9 0 1.2.3.3.9.3 1.2 0l3.8-3.8c.3-.3.3-.9 0-1.2L8.9 5.6c-.3-.3-.9-.3-1.2 0z"/></svg></span>
+        </a>
+
+        <a href="#contact" class="tile">
+          <div class="tile-icon">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+          </div>
+          <span class="tile-label">Contact &amp; Bookings</span>
+          <span class="tile-desc">Enquire about bookings, workshops, or partnerships</span>
+          <span class="tile-arrow">Get in touch <svg viewBox="0 0 20 20"><path d="M7.7 5.6c-.3.3-.3.9 0 1.2L11 10l-3.3 3.2c-.3.3-.3.9 0 1.2.3.3.9.3 1.2 0l3.8-3.8c.3-.3.3-.9 0-1.2L8.9 5.6c-.3-.3-.9-.3-1.2 0z"/></svg></span>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- ABOUT SPLIT ──────────────────────────────────────────────── -->
+    <section id="about" class="feature-split">
+      <div class="feature-img">
+        <img src="https://placehold.co/720x540/005829/ffffff?text=Our+Story" alt="Alpaquitay dancers in traditional Andean costumes" loading="lazy" />
+      </div>
+      <div class="feature-text bg-cream">
+        <p class="section-label">Who We Are</p>
+        <div class="divider"></div>
+        <h2 class="section-title">A Community United<br/>by Peruvian Culture</h2>
+        <p class="section-body">Alpaquitay Tasmania is an independent, community-based Peruvian folklore dance group based in Hobart, Tasmania. We celebrate the rich cultural heritage of Peru through the living traditions of Andean, Coastal, and Amazonian dance and music.</p>
+        <p class="section-body" style="margin-top:1rem;">Our name honours the alpaca — a symbol of the Andean highlands — and our spirit: warm, resilient, and deeply rooted in community. Since our founding, we have shared the colour and joy of Peruvian folklore with thousands of Tasmanians across festivals, schools, and cultural events.</p>
+        <div style="margin-top:2rem;">
+          <a href="#performances" class="text-link">
+            Discover our performances
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M7.7 5.6c-.3.3-.3.9 0 1.2L11 10l-3.3 3.2c-.3.3-.3.9 0 1.2.3.3.9.3 1.2 0l3.8-3.8c.3-.3.3-.9 0-1.2L8.9 5.6c-.3-.3-.9-.3-1.2 0z"/></svg>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- MISSION SPLIT (reversed) ─────────────────────────────────── -->
+    <section id="performances" class="feature-split reverse">
+      <div class="feature-img">
+        <img src="https://placehold.co/720x540/003d1c/f9f7f0?text=Performances" alt="Alpaquitay live performance on stage" loading="lazy" />
+      </div>
+      <div class="feature-text bg-green">
+        <p class="section-label">Performances</p>
+        <div class="divider"></div>
+        <h2 class="section-title">Bringing the Andes<br/>to Every Stage</h2>
+        <p class="section-body">From intimate community events to large festival stages, our ensemble of trained dancers and musicians delivers authentic, high-energy Peruvian folklore performances. We perform dances from every region of Peru — Marinera, Huayno, Festejo, Tondero, and more — in stunning traditional costumes.</p>
+        <div style="margin-top:2rem; display:flex; gap:1rem; flex-wrap:wrap;">
+          <a href="#contact" class="btn-hero-primary" style="background:#fff; color:var(--green);">Book a Performance</a>
+          <a href="#events" class="btn-hero-secondary" style="border-color:rgba(255,255,255,.5); color:#fff;">View Events</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- STAT BAR ─────────────────────────────────────────────────── -->
+    <div class="stat-bar">
+      <div class="stat-bar-inner">
+        <div class="stat-item">
+          <div class="stat-num">10<span>+</span></div>
+          <div class="stat-label">Years of community performance</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">50<span>+</span></div>
+          <div class="stat-label">Shows performed across Tasmania</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">8<span>+</span></div>
+          <div class="stat-label">Cultural festivals participated</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">100<span>%</span></div>
+          <div class="stat-label">Authentic Peruvian folklore</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TESTIMONIAL ─────────────────────────────────────────────── -->
+    <div class="testimonial-section">
+      <div class="testimonial-inner">
+        <span class="quote-mark">"</span>
+        <p class="testimonial-text">Watching Alpaquitay perform is like being transported to the Andean highlands. The authenticity, the colour, the sheer energy of the dancers — it is genuinely extraordinary. They are an absolute treasure for Tasmania's cultural life.</p>
+        <p class="testimonial-attr">— Alexandra M., Multicultural Council of Tasmania</p>
+      </div>
+    </div>
+
+    <!-- NEWS ─────────────────────────────────────────────────────── -->
+    <section id="news" class="section bg-white">
+      <div class="section-inner">
+        <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:.5rem;">
+          <div>
+            <p class="section-label">Latest News</p>
+            <h2 class="section-title" style="margin-bottom:0;">News &amp; Updates</h2>
+          </div>
+          <a href="#" class="text-link">
+            View all news
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M7.7 5.6c-.3.3-.3.9 0 1.2L11 10l-3.3 3.2c-.3.3-.3.9 0 1.2.3.3.9.3 1.2 0l3.8-3.8c.3-.3.3-.9 0-1.2L8.9 5.6c-.3-.3-.9-.3-1.2 0z"/></svg>
+          </a>
+        </div>
+
+        <div class="cards-grid">
+
+          <article class="card">
+            <div class="card-img">
+              <img src="https://placehold.co/640x360/005829/fff?text=Fiesta+2026" alt="Fiesta Cultural Tasmania 2026" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="card-tag">Announcement</span>
+              <h3 class="card-title">Fiesta Cultural Tasmania 2026 — Alpaquitay Headlines the Main Stage</h3>
+              <p class="card-excerpt">We are thrilled to announce our headline slot at this year's Fiesta Cultural Tasmania at Federation Concert Hall. Tickets available now.</p>
+              <div class="card-meta">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 2v2H5a2 2 0 00-2 2v11a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2h-1V2h-2v2H7V2H6zm0 8h8v2H6v-2z"/></svg>
+                April 10, 2026
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-img">
+              <img src="https://placehold.co/640x360/b8860b/fff?text=Youth+Program" alt="New Youth Dance Program" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="card-tag">Programs</span>
+              <h3 class="card-title">New Youth Folklore Dance Program Launching Term 2, 2026</h3>
+              <p class="card-excerpt">Alpaquitay is launching a dedicated youth dance program for ages 8–17. Enrolments are now open for Term 2 starting in May.</p>
+              <div class="card-meta">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 2v2H5a2 2 0 00-2 2v11a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2h-1V2h-2v2H7V2H6zm0 8h8v2H6v-2z"/></svg>
+                March 28, 2026
+              </div>
+            </div>
+          </article>
+
+          <article class="card">
+            <div class="card-img">
+              <img src="https://placehold.co/640x360/003d1c/fff?text=Community+Event" alt="Multicultural Festival recap" loading="lazy" />
+            </div>
+            <div class="card-body">
+              <span class="card-tag">Community</span>
+              <h3 class="card-title">Alpaquitay Brings Colour to the Hobart Multicultural Festival</h3>
+              <p class="card-excerpt">Our performance at this year's Multicultural Festival drew a crowd of over 2,000 people. Read our recap and see the photos.</p>
+              <div class="card-meta">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M6 2v2H5a2 2 0 00-2 2v11a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2h-1V2h-2v2H7V2H6zm0 8h8v2H6v-2z"/></svg>
+                March 15, 2026
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CLASSES SPLIT ────────────────────────────────────────────── -->
+    <section id="classes" class="feature-split">
+      <div class="feature-text bg-cream">
+        <p class="section-label">Classes &amp; Workshops</p>
+        <div class="divider"></div>
+        <h2 class="section-title">Learn to Dance<br/>the Folklore Way</h2>
+        <p class="section-body">Whether you are a complete beginner or an experienced dancer, our workshops and classes offer a welcoming space to learn the steps, rhythms, and stories behind Peru's most beloved dances.</p>
+        <ul style="margin-top:1.25rem; display:flex; flex-direction:column; gap:.6rem;">
+          <li style="display:flex; align-items:center; gap:.6rem; font-size:.9375rem; color:#4a4844;">
+            <svg viewBox="0 0 20 20" fill="var(--green)" style="width:18px;height:18px;flex-shrink:0;"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg>
+            Adult drop-in workshops — every Saturday morning
+          </li>
+          <li style="display:flex; align-items:center; gap:.6rem; font-size:.9375rem; color:#4a4844;">
+            <svg viewBox="0 0 20 20" fill="var(--green)" style="width:18px;height:18px;flex-shrink:0;"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg>
+            Youth program (ages 8–17) — Term 2 enrolments open
+          </li>
+          <li style="display:flex; align-items:center; gap:.6rem; font-size:.9375rem; color:#4a4844;">
+            <svg viewBox="0 0 20 20" fill="var(--green)" style="width:18px;height:18px;flex-shrink:0;"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg>
+            School visits and incursion programs available
+          </li>
+          <li style="display:flex; align-items:center; gap:.6rem; font-size:.9375rem; color:#4a4844;">
+            <svg viewBox="0 0 20 20" fill="var(--green)" style="width:18px;height:18px;flex-shrink:0;"><path d="M16.7 5.3a1 1 0 00-1.4 0L8 12.6 4.7 9.3a1 1 0 00-1.4 1.4l4 4a1 1 0 001.4 0l8-8a1 1 0 000-1.4z"/></svg>
+            Private group sessions for team-building and parties
+          </li>
+        </ul>
+        <div style="margin-top:2rem;">
+          <a href="#contact" class="text-link">
+            Enquire about classes
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M7.7 5.6c-.3.3-.3.9 0 1.2L11 10l-3.3 3.2c-.3.3-.3.9 0 1.2.3.3.9.3 1.2 0l3.8-3.8c.3-.3.3-.9 0-1.2L8.9 5.6c-.3-.3-.9-.3-1.2 0z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="feature-img">
+        <img src="https://placehold.co/720x540/b8860b/ffffff?text=Dance+Classes" alt="Alpaquitay dance workshop" loading="lazy" />
+      </div>
+    </section>
+
+    <!-- EVENTS ──────────────────────────────────────────────────── -->
+    <section id="events" class="section bg-white">
+      <div class="section-inner">
+        <div style="display:flex; align-items:flex-end; justify-content:space-between; flex-wrap:wrap; gap:1rem; margin-bottom:.5rem;">
+          <div>
+            <p class="section-label">What's On</p>
+            <h2 class="section-title" style="margin-bottom:0;">Upcoming Events</h2>
+          </div>
+          <a href="#" class="text-link">
+            Full calendar
+            <svg viewBox="0 0 20 20" fill="currentColor"><path d="M7.7 5.6c-.3.3-.3.9 0 1.2L11 10l-3.3 3.2c-.3.3-.3.9 0 1.2.3.3.9.3 1.2 0l3.8-3.8c.3-.3.3-.9 0-1.2L8.9 5.6c-.3-.3-.9-.3-1.2 0z"/></svg>
+          </a>
+        </div>
+
+        <div class="events-list">
+
+          <div class="event-row">
+            <div class="event-date">
+              <span class="event-date-day">03</span>
+              <span class="event-date-mo">May</span>
+            </div>
+            <div class="event-info">
+              <p class="event-title">Fiesta Cultural Tasmania 2026</p>
+              <div class="event-meta-row">
+                <span>
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.3C5.2 1.3 2.7 3.5 2.7 6.8c0 2.1 1.6 4.6 4.9 7.5.25.22.63.22.88 0 3.3-2.9 4.9-5.4 4.9-7.5C13.3 3.5 10.8 1.3 8 1.3zM8 8a1.3 1.3 0 110-2.6A1.3 1.3 0 018 8z"/></svg>
+                  Federation Concert Hall, Hobart
+                </span>
+                <span>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm.75 4.5v4.25l3 1.75-.75 1.3-3.75-2.2V6.5h1.5z"/></svg>
+                  7:00 PM
+                </span>
+              </div>
+            </div>
+            <span class="event-tag-pill">Festival</span>
+          </div>
+
+          <div class="event-row">
+            <div class="event-date">
+              <span class="event-date-day">18</span>
+              <span class="event-date-mo">May</span>
+            </div>
+            <div class="event-info">
+              <p class="event-title">Dance Workshop — Marinera &amp; Huayno</p>
+              <div class="event-meta-row">
+                <span>
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.3C5.2 1.3 2.7 3.5 2.7 6.8c0 2.1 1.6 4.6 4.9 7.5.25.22.63.22.88 0 3.3-2.9 4.9-5.4 4.9-7.5C13.3 3.5 10.8 1.3 8 1.3zM8 8a1.3 1.3 0 110-2.6A1.3 1.3 0 018 8z"/></svg>
+                  Moonah Arts Centre
+                </span>
+                <span>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm.75 4.5v4.25l3 1.75-.75 1.3-3.75-2.2V6.5h1.5z"/></svg>
+                  2:00 PM
+                </span>
+              </div>
+            </div>
+            <span class="event-tag-pill">Workshop</span>
+          </div>
+
+          <div class="event-row">
+            <div class="event-date">
+              <span class="event-date-day">14</span>
+              <span class="event-date-mo">Jun</span>
+            </div>
+            <div class="event-info">
+              <p class="event-title">Multicultural Tasmania Festival</p>
+              <div class="event-meta-row">
+                <span>
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.3C5.2 1.3 2.7 3.5 2.7 6.8c0 2.1 1.6 4.6 4.9 7.5.25.22.63.22.88 0 3.3-2.9 4.9-5.4 4.9-7.5C13.3 3.5 10.8 1.3 8 1.3zM8 8a1.3 1.3 0 110-2.6A1.3 1.3 0 018 8z"/></svg>
+                  Princes Park, Launceston
+                </span>
+                <span>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm.75 4.5v4.25l3 1.75-.75 1.3-3.75-2.2V6.5h1.5z"/></svg>
+                  All Day
+                </span>
+              </div>
+            </div>
+            <span class="event-tag-pill">Public</span>
+          </div>
+
+          <div class="event-row">
+            <div class="event-date">
+              <span class="event-date-day">28</span>
+              <span class="event-date-mo">Jul</span>
+            </div>
+            <div class="event-info">
+              <p class="event-title">Fiestas Patrias — Peru National Day Celebration</p>
+              <div class="event-meta-row">
+                <span>
+                  <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.3C5.2 1.3 2.7 3.5 2.7 6.8c0 2.1 1.6 4.6 4.9 7.5.25.22.63.22.88 0 3.3-2.9 4.9-5.4 4.9-7.5C13.3 3.5 10.8 1.3 8 1.3zM8 8a1.3 1.3 0 110-2.6A1.3 1.3 0 018 8z"/></svg>
+                  Hobart Town Hall
+                </span>
+                <span>
+                  <svg viewBox="0 0 20 20" fill="currentColor"><path d="M10 2a8 8 0 100 16A8 8 0 0010 2zm.75 4.5v4.25l3 1.75-.75 1.3-3.75-2.2V6.5h1.5z"/></svg>
+                  6:30 PM
+                </span>
+              </div>
+            </div>
+            <span class="event-tag-pill">Special</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT ─────────────────────────────────────────────────── -->
+    <section id="contact" class="section bg-cream">
+      <div class="section-inner">
+        <p class="section-label">Get in Touch</p>
+        <div class="divider"></div>
+        <h2 class="section-title" style="margin-bottom:2.5rem;">Book a Performance<br/>or Send an Enquiry</h2>
+
+        <div class="contact-grid">
+
+          <!-- Left: contact details -->
+          <div>
+            <div class="contact-detail">
+              <div class="contact-icon">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M16.7 3.3H3.3A1.7 1.7 0 001.7 5v10a1.7 1.7 0 001.6 1.7H16.7a1.7 1.7 0 001.6-1.7V5a1.7 1.7 0 00-1.6-1.7zm-.4 3.6l-5.9 3.7a.8.8 0 01-.8 0L3.7 6.9a.8.8 0 11.7-1.4L10 8.9l5.6-3.4a.8.8 0 11.7 1.4z"/></svg>
+              </div>
+              <div>
+                <p class="contact-lbl">Email</p>
+                <p class="contact-val"><a href="mailto:alpaquitaytasmania@gmail.com">alpaquitaytasmania@gmail.com</a></p>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-icon">
+                <svg viewBox="0 0 16 16" fill="currentColor"><path d="M8 1.3C5.2 1.3 2.7 3.5 2.7 6.8c0 2.1 1.6 4.6 4.9 7.5.25.22.63.22.88 0 3.3-2.9 4.9-5.4 4.9-7.5C13.3 3.5 10.8 1.3 8 1.3zM8 8a1.3 1.3 0 110-2.6A1.3 1.3 0 018 8z"/></svg>
+              </div>
+              <div>
+                <p class="contact-lbl">Location</p>
+                <p class="contact-val">Hobart, Tasmania, Australia</p>
+              </div>
+            </div>
+            <div class="contact-detail">
+              <div class="contact-icon">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+              </div>
+              <div>
+                <p class="contact-lbl">Social Media</p>
+                <p class="contact-val">@alpaquitaytasmania</p>
+              </div>
+            </div>
+
+            <div style="margin-top:2rem;">
+              <p style="font-size:.875rem; font-weight:600; color:var(--mid); letter-spacing:.06em; text-transform:uppercase; margin-bottom:.75rem;">Follow Us</p>
+              <div style="display:flex; gap:.6rem;">
+                <a href="#" class="social-icon" aria-label="Facebook" style="width:40px;height:40px;border-radius:6px;border:1px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--mid);transition:all .15s;">
+                  <svg viewBox="0 0 24 25" fill="currentColor" style="width:18px;height:18px;"><path d="M24 12.7C24 6.1 18.6.7 12 .7S0 6.1 0 12.7c0 6 4.4 11 10.1 11.9v-8.4H7.1v-3.5h3V10c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5H13.9v8.4C19.6 23.7 24 18.7 24 12.7z"/></svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="Instagram" style="width:40px;height:40px;border-radius:6px;border:1px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--mid);transition:all .15s;">
+                  <svg viewBox="0 0 24 25" fill="currentColor" style="width:18px;height:18px;"><path d="M12 2.9c3.2 0 3.6.01 4.8.07 1.2.05 1.8.25 2.2.41a4 4 0 011.5.96 4 4 0 01.96 1.5c.16.42.36 1.02.41 2.22.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.84c-.05 1.2-.25 1.8-.41 2.22a4 4 0 01-.96 1.5 4 4 0 01-1.5.96c-.42.16-1.02.36-2.22.41-1.26.06-1.64.07-4.84.07s-3.58-.01-4.84-.07c-1.2-.05-1.8-.25-2.22-.41a4 4 0 01-1.5-.96 4 4 0 01-.96-1.5c-.16-.42-.36-1.02-.41-2.22C2.91 15.58 2.9 15.2 2.9 12s.01-3.58.07-4.84c.05-1.2.25-1.8.41-2.22a4 4 0 01.96-1.5 4 4 0 011.5-.96c.42-.16 1.02-.36 2.22-.41C8.42 2.91 8.8 2.9 12 2.9zM12 .7C8.74.7 8.33.72 7.05.77 5.78.83 4.9 1.04 4.14 1.33a6 6 0 00-2.13 1.39A6 6 0 00.62 4.85C.33 5.61.13 6.49.07 7.77.01 9.06 0 9.46 0 12.74s.01 3.67.07 4.95c.06 1.27.26 2.15.55 2.91a6 6 0 001.39 2.13 6 6 0 002.13 1.39c.76.29 1.64.49 2.92.55C7.35 24.72 7.74 24.74 12 24.74s4.65-.02 5.94-.07c1.27-.06 2.15-.26 2.92-.55a6 6 0 002.13-1.39 6 6 0 001.39-2.13c.29-.76.49-1.64.55-2.92.06-1.28.07-1.67.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.55-2.91a6 6 0 00-1.39-2.13A6 6 0 0019.86 1.33C19.1 1.04 18.22.83 16.95.77 15.67.72 15.26.7 12 .7zm0 5.88a5.83 5.83 0 100 11.66A5.83 5.83 0 0012 6.58zM12 16a3.25 3.25 0 110-6.5A3.25 3.25 0 0112 16zm6.4-9.67a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+                </a>
+                <a href="#" class="social-icon" aria-label="YouTube" style="width:40px;height:40px;border-radius:6px;border:1px solid var(--border);background:var(--white);display:flex;align-items:center;justify-content:center;color:var(--mid);transition:all .15s;">
+                  <svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px;"><path d="M21.6 7.2a2.7 2.7 0 00-1.9-1.9C18 5 12 5 12 5s-6 0-7.7.4A2.7 2.7 0 002.4 7.2C2 8.9 2 12 2 12s0 3.1.4 4.8a2.7 2.7 0 001.9 1.9C6 19 12 19 12 19s6 0 7.7-.4a2.7 2.7 0 001.9-1.9C22 15.1 22 12 22 12s0-3.1-.4-4.8zM9.75 15V9l5.75 3-5.75 3z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right: form -->
+          <form onsubmit="event.preventDefault(); this.innerHTML='<p style=\'padding:2rem; text-align:center; color:var(--green); font-weight:600;\'>Thank you! We will be in touch shortly.</p>'">
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="fname">First Name *</label>
+                <input class="form-input" type="text" id="fname" name="fname" placeholder="Maria" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="lname">Last Name *</label>
+                <input class="form-input" type="text" id="lname" name="lname" placeholder="Garcia" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address *</label>
+              <input class="form-input" type="email" id="email" name="email" placeholder="your@email.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="type">Enquiry Type</label>
+              <select class="form-select" id="type" name="type">
+                <option value="">Select a category…</option>
+                <option value="performance">Book a Performance</option>
+                <option value="workshop">Dance Workshop / Class</option>
+                <option value="school">School Program</option>
+                <option value="private">Private Event</option>
+                <option value="general">General Enquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="message">Message *</label>
+              <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your event, preferred dates, and any special requirements…" required></textarea>
+            </div>
+            <button type="submit" class="btn-submit">
+              Send Enquiry
+              <svg viewBox="0 0 20 20" fill="currentColor"><path d="M17.4 2.6a1 1 0 00-1.1-.2L2.3 8.4a1 1 0 000 1.8l4.5 2 2 4.5a1 1 0 001.8 0l6-14a1 1 0 00-.2-1.1z"/></svg>
+            </button>
+          </form>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="footer-top">
+
+      <div class="footer-brand">
+        <a href="#" class="site-logo" style="text-decoration:none;">
+          <div class="logo-mark" style="width:44px;height:44px;">
+            <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" style="width:28px;height:28px;fill:#fff;">
+              <ellipse cx="105" cy="130" rx="52" ry="38"/>
+              <rect x="88" y="80" width="24" height="50" rx="10"/>
+              <ellipse cx="100" cy="68" rx="22" ry="20"/>
+              <ellipse cx="88" cy="50" rx="7" ry="11" transform="rotate(-15 88 50)"/>
+              <ellipse cx="112" cy="48" rx="7" ry="11" transform="rotate(15 112 48)"/>
+              <ellipse cx="100" cy="78" rx="12" ry="7"/>
+              <rect x="72" y="158" width="14" height="30" rx="7"/>
+              <rect x="90" y="158" width="14" height="30" rx="7"/>
+              <rect x="110" y="158" width="14" height="30" rx="7"/>
+              <rect x="128" y="158" width="14" height="30" rx="7"/>
+            </svg>
+          </div>
+          <div class="logo-text">
+            <span class="logo-text-main" style="font-size:1.15rem;">Alpaquitay</span>
+            <span class="logo-text-sub">Tasmania</span>
+          </div>
+        </a>
+        <p class="footer-about">Bringing the colours, rhythms, and soul of Peruvian folklore to the heart of Tasmania since 2014. Andean spirit in Southern lands.</p>
+        <div class="footer-social">
+          <a href="#" class="social-icon" aria-label="Facebook">
+            <svg viewBox="0 0 24 25" fill="currentColor" style="width:16px;height:16px;"><path d="M24 12.7C24 6.1 18.6.7 12 .7S0 6.1 0 12.7c0 6 4.4 11 10.1 11.9v-8.4H7.1v-3.5h3V10c0-3 1.8-4.6 4.5-4.6 1.3 0 2.7.2 2.7.2v2.9h-1.5c-1.5 0-2 .9-2 1.9v2.2h3.3l-.5 3.5H13.9v8.4C19.6 23.7 24 18.7 24 12.7z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="Instagram">
+            <svg viewBox="0 0 24 25" fill="currentColor" style="width:16px;height:16px;"><path d="M12 2.9c3.2 0 3.6.01 4.8.07 1.2.05 1.8.25 2.2.41a4 4 0 011.5.96 4 4 0 01.96 1.5c.16.42.36 1.02.41 2.22.06 1.27.07 1.64.07 4.85s-.01 3.58-.07 4.84c-.05 1.2-.25 1.8-.41 2.22a4 4 0 01-.96 1.5 4 4 0 01-1.5.96c-.42.16-1.02.36-2.22.41-1.26.06-1.64.07-4.84.07s-3.58-.01-4.84-.07c-1.2-.05-1.8-.25-2.22-.41a4 4 0 01-1.5-.96 4 4 0 01-.96-1.5c-.16-.42-.36-1.02-.41-2.22C2.91 15.58 2.9 15.2 2.9 12s.01-3.58.07-4.84c.05-1.2.25-1.8.41-2.22a4 4 0 01.96-1.5 4 4 0 011.5-.96c.42-.16 1.02-.36 2.22-.41C8.42 2.91 8.8 2.9 12 2.9zM12 .7C8.74.7 8.33.72 7.05.77 5.78.83 4.9 1.04 4.14 1.33a6 6 0 00-2.13 1.39A6 6 0 00.62 4.85C.33 5.61.13 6.49.07 7.77.01 9.06 0 9.46 0 12.74s.01 3.67.07 4.95c.06 1.27.26 2.15.55 2.91a6 6 0 001.39 2.13 6 6 0 002.13 1.39c.76.29 1.64.49 2.92.55C7.35 24.72 7.74 24.74 12 24.74s4.65-.02 5.94-.07c1.27-.06 2.15-.26 2.92-.55a6 6 0 002.13-1.39 6 6 0 001.39-2.13c.29-.76.49-1.64.55-2.92.06-1.28.07-1.67.07-4.95s-.01-3.67-.07-4.95c-.06-1.27-.26-2.15-.55-2.91a6 6 0 00-1.39-2.13A6 6 0 0019.86 1.33C19.1 1.04 18.22.83 16.95.77 15.67.72 15.26.7 12 .7zm0 5.88a5.83 5.83 0 100 11.66A5.83 5.83 0 0012 6.58zM12 16a3.25 3.25 0 110-6.5A3.25 3.25 0 0112 16zm6.4-9.67a1.44 1.44 0 11-2.88 0 1.44 1.44 0 012.88 0z"/></svg>
+          </a>
+          <a href="#" class="social-icon" aria-label="YouTube">
+            <svg viewBox="0 0 24 24" fill="currentColor" style="width:16px;height:16px;"><path d="M21.6 7.2a2.7 2.7 0 00-1.9-1.9C18 5 12 5 12 5s-6 0-7.7.4A2.7 2.7 0 002.4 7.2C2 8.9 2 12 2 12s0 3.1.4 4.8a2.7 2.7 0 001.9 1.9C6 19 12 19 12 19s6 0 7.7-.4a2.7 2.7 0 001.9-1.9C22 15.1 22 12 22 12s0-3.1-.4-4.8zM9.75 15V9l5.75 3-5.75 3z"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Quick Links</p>
+        <ul class="footer-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#performances">Performances</a></li>
+          <li><a href="#classes">Classes</a></li>
+          <li><a href="#events">Events</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Programs</p>
+        <ul class="footer-links">
+          <li><a href="#classes">Adult Workshops</a></li>
+          <li><a href="#classes">Youth Program</a></li>
+          <li><a href="#classes">School Incursions</a></li>
+          <li><a href="#performances">Festival Bookings</a></li>
+          <li><a href="#performances">Private Events</a></li>
+          <li><a href="#performances">Corporate Events</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="footer-col-title">Contact</p>
+        <ul class="footer-links">
+          <li><a href="mailto:alpaquitaytasmania@gmail.com">alpaquitaytasmania@gmail.com</a></li>
+          <li><a href="#">Hobart, Tasmania</a></li>
+          <li><a href="#">Australia</a></li>
+        </ul>
+        <div style="margin-top:1.5rem;">
+          <a href="#contact" style="display:inline-block; background:var(--green); color:#fff; padding:.6rem 1.25rem; border-radius:var(--radius); font-size:.875rem; font-weight:600; transition:background .15s;" onmouseover="this.style.background='var(--green-dark)'" onmouseout="this.style.background='var(--green)'">Book a Performance</a>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <p class="footer-copyright">© 2026 Alpaquitay Tasmania. All rights reserved.</p>
+        <div class="footer-legal">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Nav scroll shadow
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      header.style.boxShadow = window.scrollY > 10 ? '0 2px 16px rgba(0,0,0,.1)' : '';
+    }, { passive: true });
+
+    // Smooth anchor scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener('click', e => {
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Social icon hover (footer)
+    document.querySelectorAll('.footer-social .social-icon').forEach(btn => {
+      btn.addEventListener('mouseenter', () => {
+        btn.style.background = 'var(--green)';
+        btn.style.borderColor = 'var(--green)';
+        btn.style.color = '#fff';
+      });
+      btn.addEventListener('mouseleave', () => {
+        btn.style.background = '';
+        btn.style.borderColor = 'rgba(255,255,255,.15)';
+        btn.style.color = 'rgba(255,255,255,.65)';
+      });
+    });
+  </script>
+
+</body>
+</html>
